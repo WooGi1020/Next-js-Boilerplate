@@ -1,0 +1,80 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "ignorePatterns": ["node_modules/", ".pnp.cjs", ".pnp.loader.cjs", "public/"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier", "import"],
+  "overrides": [
+    {
+      "files": ["hooks/**/**/*.test.ts?(x)"],
+      "rules": {
+        "react-hooks/rules-of-hooks": "off"
+      }
+    }
+  ],
+  "rules": {
+    "no-useless-catch": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "no-unsafe-optional-chaining": 1,
+    "camelcase": ["error", { "properties": "never", "ignoreDestructuring": false }],
+    "no-unused-vars": ["error", { "args": "none" }],
+    "import/no-unresolved": ["error", { "ignore": ["^@/"] }],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports",
+        "disallowTypeAnnotations": false
+      }
+    ],
+    "arrow-parens": ["error", "always"],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", ["parent", "sibling"], "index"],
+        "pathGroups": [
+          {
+            "pattern": "angular",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "no-console": "warn",
+    "no-alert": "warn",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
